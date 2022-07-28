@@ -1,0 +1,16 @@
+fname = input("Enter file name: ")
+fh = open(fname)
+list1 = list()
+list2 = list()
+list3 = list()
+for line in fh:
+	line = line.rstrip()
+	list1.append(line)
+for i in list1:
+    words = i.split()
+    list2 = list2+words
+for t in list2:
+    if t in list3:
+    	continue
+    list3.append(t)
+print(sorted(list3))
