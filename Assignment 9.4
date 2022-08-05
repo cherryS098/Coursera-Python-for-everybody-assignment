@@ -1,0 +1,20 @@
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
+email = dict()
+i = 0
+emails = list()
+for line in handle:
+    if line.startswith('From:'):
+        words = line.split()
+    	  emails.append(words[1])
+for word in emails:
+    email[word] = email.get(word,0)+1
+mostsender = None
+bigcount = None
+for sender, count in email.items():
+    if bigcount is None or count > bigcount:
+        mostsender = sender
+        bigcount = count
+print(mostsender, bigcount)
