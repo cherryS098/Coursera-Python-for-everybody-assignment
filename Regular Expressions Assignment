@@ -1,0 +1,13 @@
+import re
+filename = input(">")
+txt = open(filename)
+i = 0
+for line in txt:
+    y = re.findall('[0-9]+', line)
+    for number in y:
+        try:
+            int(number)
+            i = i + int(number)
+        except:
+            print('can not convert', number)
+print("The sum is", i)
